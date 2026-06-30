@@ -19,30 +19,32 @@ export default function LoginForm({
 
       <TextInput
         placeholder="Correo electrónico"
+        placeholderTextColor="#999"
         value={email}
         onChangeText={setEmail}
         style={styles.input}
-        autoCapitalize="none"
-        keyboardType="email-address"
+
       />
 
       <TextInput
         placeholder="Contraseña"
+        placeholderTextColor="#999"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
         style={styles.input}
+        onSubmitEditing={onLogin}
       />
 
       <Pressable
-        style={styles.button}
         onPress={onLogin}
+        style={({ pressed }) => [
+          styles.button,
+          pressed && styles.buttonPressed,
+        ]}
       >
-        <Text style={styles.buttonText}>
-          INGRESAR
-        </Text>
+        <Text style={styles.buttonText}>INGRESAR</Text>
       </Pressable>
-
     </View>
   );
 }
@@ -71,4 +73,17 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
+
+  buttonPressed: {
+  backgroundColor: "#481e9bff",
+  shadowColor: "#000",
+  shadowOffset: {
+    width: 0,
+    height: 4,
+    transform: [{ scale: 0.98 }]
+  },
+  shadowOpacity: 0.3,
+  shadowRadius: 6,
+  elevation: 8, // Android
+},
 });

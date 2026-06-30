@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, View, Text, StyleSheet } from "react-native";
+import { SafeAreaView, View, Text, StyleSheet, ScrollView } from "react-native";
 
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
@@ -28,6 +28,10 @@ export default function LoginPage() {
 
   return (
     <SafeAreaView style={styles.container}>
+    <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+    >
       <Navbar />
 
       <View style={styles.content}>
@@ -54,6 +58,7 @@ export default function LoginPage() {
 
         <LoginOptions />
       </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
